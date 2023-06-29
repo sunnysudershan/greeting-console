@@ -1,23 +1,25 @@
-pipeline{
-    agent{
-   tools {nodejs "nodejs"}
+pipeline {
+    agent {
+        tools {
+            nodejs "nodejs"
+        }
         label "master"
     }
-    stages{
-        stage("Install dependencies"){
-            steps{
+    stages {
+        stage("Install dependencies") {
+            steps {
                 sh "npm ci"
             }
         }
 
-        stage("Check Style"){
-            steps{
+        stage("Check Style") {
+            steps {
                 sh "npm run lint"
             }
         }
 
-        stage("Test"){
-            steps{
+        stage("Test") {
+            steps {
                 sh "npm test"
             }
         }
