@@ -1,5 +1,6 @@
 pipeline{
     agent{
+   tools {nodejs "nodejs"}
         label "master"
     }
     stages{
