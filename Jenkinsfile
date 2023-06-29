@@ -1,36 +1,22 @@
 pipeline {
-    agent any
-    
-    stages {
-        stage("Install dependencies") {
-            agent {
-                node {
-                    label "master"
-                }
-            }
-            steps {
+    agent {
+        label 'master'
+    }
+    stages{
+        stage("Install dependencies"){
+            steps{
                 sh "npm ci"
             }
         }
 
-        stage("Check Style") {
-            agent {
-                node {
-                    label "master"
-                }
-            }
-            steps {
+        stage("Check Style"){
+            steps{
                 sh "npm run lint"
             }
         }
 
-        stage("Test") {
-            agent {
-                node {
-                    label "master"
-                }
-            }
-            steps {
+        stage("Test"){
+            steps{
                 sh "npm test"
             }
         }
@@ -38,4 +24,3 @@ pipeline {
         // Add the Release stage here
     }
 }
-
