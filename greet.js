@@ -1,7 +1,3 @@
-module.exports = function greet(language, name) {
-  if (language === 'italian') {
-    return `Ciao ${name}!`;
-  } else {
+module.exports = function greet(name) {
     return `Hello ${name}!`;
-  }
-};
+}
